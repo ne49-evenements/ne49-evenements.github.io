@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Nouvelle Energie 49//Evenements//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:2026-10-13-reunion-adherents@ne49-evenements.github.io
+DTSTAMP:20261001T145034Z
+DTSTART:20261013T170000Z
+DTEND:20261013T190000Z
+SUMMARY:Réunion des adhérents et sympathisants
+LOCATION:Bowling le Fox\, Sainte-Gemmes-sur-Loire
+DESCRIPTION:Inscription : https://1ne.fr/49a2610\nNouvelle Energie Mai
+ ne-et-Loire - https://ne49-evenements.github.io/
+END:VEVENT
+END:VCALENDAR

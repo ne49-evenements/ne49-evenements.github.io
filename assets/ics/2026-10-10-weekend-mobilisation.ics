@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Nouvelle Energie 49//Evenements//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:2026-10-10-weekend-mobilisation@ne49-evenements.github.io
+DTSTAMP:20261001T145034Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261012
+SUMMARY:Week-end de Mobilisation Nationale
+DESCRIPTION:Nouvelle Energie Maine-et-Loire - https://ne49-evenements.
+ github.io/
+END:VEVENT
+END:VCALENDAR
