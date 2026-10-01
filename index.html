@@ -51,14 +51,14 @@
     line-height: 1.05;
     text-shadow: 0 3px 12px rgba(0,0,0,.55);
   }
-  ul.events { list-style: none; margin: 0; padding: 0; border-top: 1px solid rgba(160,163,126,.55); }
+  ul.events { list-style: none; margin: 0; padding: 0; border-top: 1px solid rgba(255,255,255,.9); }
   .event {
     display: grid;
-    grid-template-columns: 54px 50px 1fr 130px 68px 168px;
+    grid-template-columns: 50px 1fr 130px 56px 168px;
     align-items: center;
     column-gap: 14px;
     padding: 9px 6px;
-    border-bottom: 1px solid rgba(160,163,126,.55);
+    border-bottom: 1px solid rgba(255,255,255,.9);
     text-shadow: 0 2px 8px rgba(0,0,0,.65), 0 0 2px rgba(0,0,0,.5);
   }
   .event:nth-child(odd) .date,
@@ -82,15 +82,13 @@
   .cta:focus-visible { outline: 3px solid var(--white); outline-offset: 2px; }
   .cta.disabled { background: rgba(255,255,255,.22); color: rgba(255,255,255,.6); cursor: not-allowed; }
   .cta.disabled:hover { background: rgba(255,255,255,.22); transform: none; }
-  .qr { display: block; width: 68px; height: 68px; border-radius: 6px; }
   /* Week-ends : pas de lien, simple notification de la synchro WhatsApp */
-  .thumb { grid-column: 1; position: relative; align-self: stretch; }
-  .thumb a { position: absolute; inset: 0; display: block; border-radius: 4px; }
-  .thumb img { display: block; width: 100%; height: 100%; object-fit: contain; border-radius: 4px; transition: filter .15s; }
-  .thumb a:hover img, .thumb a:focus-visible img { filter: brightness(1.15); }
-  .thumb a:focus-visible { outline: 3px solid var(--white); outline-offset: 1px; }
+  .poster { grid-column: 4; display: block; width: 56px; height: 70px; border: 1px solid rgba(255,255,255,.85); border-radius: 4px; overflow: hidden; line-height: 0; transition: transform .15s; }
+  .poster img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .poster:hover, .poster:focus-visible { transform: scale(1.05); }
+  .poster:focus-visible { outline: 3px solid var(--white); outline-offset: 2px; }
   .cal {
-    grid-column: 2;
+    grid-column: 1;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     width: 50px; height: 46px;
     background: var(--navy);
@@ -103,17 +101,16 @@
   .cal .m { color: var(--kaki); font-weight: 800; font-size: .62rem; letter-spacing: .08em; }
   .cal .d { color: var(--white); font-weight: 800; font-size: 1.3rem; margin-top: 2px; }
   .cal.range .d { font-size: .98rem; margin-top: 4px; }
-  .text { grid-column: 3; }
-  .cta { grid-column: 4; }
-  .qr { grid-column: 5; }
-  .links { grid-column: 6; display: flex; flex-direction: column; gap: 6px; align-items: flex-start; text-shadow: 0 2px 6px rgba(0,0,0,.7); }
+  .text { grid-column: 2; }
+  .cta { grid-column: 3; }
+  .links { grid-column: 5; display: flex; flex-direction: column; gap: 6px; align-items: flex-start; text-shadow: 0 2px 6px rgba(0,0,0,.7); }
   .links a { display: inline-flex; align-items: center; gap: 6px; color: var(--white); font-weight: 700; font-size: .78rem; line-height: 1.2; text-decoration: none; white-space: nowrap; }
   .links a:hover, .links a:focus-visible { text-decoration: underline; }
   .links .tbd { display: inline-flex; align-items: center; gap: 6px; color: rgba(255,255,255,.4); font-weight: 700; font-size: .78rem; line-height: 1.2; white-space: nowrap; }
   .links .tbd .ic { color: rgba(255,255,255,.35); }
   .links .ic { width: 18px; height: 18px; flex: none; color: var(--kaki); }
   .notify {
-    grid-column: 4 / 6;
+    grid-column: 3 / 5;
     padding: 7px 12px;
     border: 1px solid var(--kaki);
     border-radius: 999px;
@@ -125,7 +122,7 @@
     background: rgba(0,47,103,.45);
   }
   .event.past { opacity: .45; }
-  .event.past .cta, .event.past .qr, .event.past .notify, .event.past .links { display: none; }
+  .event.past .cta, .event.past .poster, .event.past .notify, .event.past .links { display: none; }
   .social {
     margin-top: 14px;
     padding: 10px 12px;
@@ -154,22 +151,16 @@
   }
   footer a:hover { text-decoration: underline; }
   @media (max-width: 560px) {
-    .thumb:empty { display: none; }
-    .event { grid-template-columns: 50px 1fr 68px; row-gap: 8px; }
+    .event { grid-template-columns: 50px 62px 1fr 56px; column-gap: 8px; row-gap: 6px; padding: 8px 2px; }
     .event .cal { grid-column: 1; grid-row: 1; align-self: start; }
-    .event .text { grid-column: 2 / 4; grid-row: 1; }
-    .event .cta { grid-column: 1 / 3; align-self: center; }
-    .event .qr { grid-column: 3; }
-    .event .notify { grid-column: 1 / 4; }
-    .event .links { grid-column: 1 / 4; flex-direction: row; flex-wrap: wrap; gap: 6px 18px; }
-    .event.has-thumb { grid-template-columns: 56px 50px 1fr 68px; }
-    .event.has-thumb .thumb { grid-column: 1; grid-row: 1 / span 3; }
-    .event.has-thumb .cal { grid-column: 2; }
-    .event.has-thumb .text { grid-column: 3 / 5; }
-    .event.has-thumb .cta { grid-column: 2 / 4; }
-    .event.has-thumb .qr { grid-column: 4; }
-    .event.has-thumb .notify { grid-column: 2 / 5; }
-    .event.has-thumb .links { grid-column: 2 / 5; }
+    .event .text { grid-column: 2 / 5; grid-row: 1; }
+    .event.has-poster .text { grid-column: 2 / 4; }
+    .event .cta { grid-column: 1 / 3; grid-row: 2; padding: 7px 6px; font-size: .85rem; }
+    .event .notify { grid-column: 1 / 3; grid-row: 2; padding: 6px 8px; border-radius: 14px; font-size: .78rem; line-height: 1.15; white-space: normal; }
+    .event .links { grid-column: 3 / 5; grid-row: 2; gap: 4px; }
+    .event.has-poster .links { grid-column: 3; }
+    .links a, .links .tbd { white-space: normal; }
+    .event .poster { grid-column: 4; grid-row: 1 / span 2; align-self: start; justify-self: end; }
     .social { border-radius: 24px; }
   }
 </style>
@@ -180,22 +171,20 @@
 
   <!-- data-end = fin de l'événement (heure de Paris) ; passé ce moment la ligne est estompée automatiquement -->
   <ul class="events">
-    <li class="event has-thumb" data-end="2026-10-07T22:00:00+02:00">
-      <div class="thumb"><a href="assets/posters/afterwork-2026-10-07.jpg" target="_blank" rel="noopener" title="Voir l'affiche en grand"><img src="assets/posters/afterwork-2026-10-07-thumb.jpg" alt="Affiche - Afterwork Les Jeunes Energies, 7 octobre" width="120" height="150" loading="lazy"></a></div>
+    <li class="event has-poster" data-end="2026-10-07T22:00:00+02:00">
       <time class="cal" datetime="2026-10-07" aria-hidden="true"><span class="m">OCT</span><span class="d">7</span></time>
       <div class="text">
         <p class="date">Le mercredi 7 Octobre 2026 - 18h30</p>
         <p class="lieu">Afterwork Les Jeunes Energies - Les Variétés - Angers</p>
       </div>
       <a class="cta" href="https://1ne.fr/49j" target="_blank" rel="noopener">S'inscrire</a>
-      <img class="qr" src="assets/qr-49j.png" alt="QR code d'inscription - Afterwork du 7 octobre" width="68" height="68">
+      <a class="poster" href="assets/posters/afterwork-2026-10-07.jpg" target="_blank" rel="noopener" title="Voir l'affiche en grand"><img src="assets/posters/afterwork-2026-10-07-thumb.jpg" alt="Affiche - Afterwork Les Jeunes Energies, 7 octobre" width="120" height="150" loading="lazy"></a>
       <div class="links">
         <a href="https://www.google.com/maps/search/?api=1&amp;query=Les+Vari%C3%A9t%C3%A9s+Angers" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>Google Maps</a>
         <a href="assets/ics/2026-10-07-afterwork.ics" download><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>Ajouter au calendrier</a>
       </div>
     </li>
     <li class="event" data-end="2026-10-11T23:59:00+02:00">
-      <div class="thumb"></div>
       <time class="cal range" datetime="2026-10-10" aria-hidden="true"><span class="m">OCT</span><span class="d">10-11</span></time>
       <div class="text">
         <p class="date">Les 10-11 Octobre 2026</p>
@@ -206,22 +195,20 @@
         <a href="assets/ics/2026-10-10-weekend-mobilisation.ics" download><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>Ajouter au calendrier</a>
       </div>
     </li>
-    <li class="event has-thumb" data-end="2026-10-13T22:30:00+02:00">
-      <div class="thumb"><a href="assets/posters/reunion-2026-10-13.jpg" target="_blank" rel="noopener" title="Voir l'affiche en grand"><img src="assets/posters/reunion-2026-10-13-thumb.jpg" alt="Affiche - Réunion des adhérents et sympathisants, 13 octobre" width="120" height="150" loading="lazy"></a></div>
+    <li class="event has-poster" data-end="2026-10-13T22:30:00+02:00">
       <time class="cal" datetime="2026-10-13" aria-hidden="true"><span class="m">OCT</span><span class="d">13</span></time>
       <div class="text">
         <p class="date">Le mardi 13 Octobre 2026 - 19h</p>
         <p class="lieu">Réunion des adhérents et sympathisants - Bowling le Fox à Sainte Gemmes-sur-Loire</p>
       </div>
       <a class="cta" href="https://action.qomon.org/5229dc9b-reunion-des-adherents-et-des-sympathisants/" target="_blank" rel="noopener">S'inscrire</a>
-      <img class="qr" src="assets/qr-reunion-2026-10-13.png" alt="QR code d'inscription - Réunion du 13 octobre" width="68" height="68">
+      <a class="poster" href="assets/posters/reunion-2026-10-13.jpg" target="_blank" rel="noopener" title="Voir l'affiche en grand"><img src="assets/posters/reunion-2026-10-13-thumb.jpg" alt="Affiche - Réunion des adhérents et sympathisants, 13 octobre" width="120" height="150" loading="lazy"></a>
       <div class="links">
         <a href="https://www.google.com/maps/search/?api=1&amp;query=Bowling+le+Fox+Sainte-Gemmes-sur-Loire" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>Google Maps</a>
         <a href="assets/ics/2026-10-13-reunion-adherents.ics" download><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>Ajouter au calendrier</a>
       </div>
     </li>
     <li class="event" data-end="2026-11-05T23:59:00+01:00">
-      <div class="thumb"></div>
       <time class="cal" datetime="2026-11-05" aria-hidden="true"><span class="m">NOV</span><span class="d">5</span></time>
       <div class="text">
         <p class="date">Le jeudi 5 Novembre 2026</p>
@@ -234,7 +221,6 @@
       </div>
     </li>
     <li class="event" data-end="2026-11-15T23:59:00+01:00">
-      <div class="thumb"></div>
       <time class="cal range" datetime="2026-11-14" aria-hidden="true"><span class="m">NOV</span><span class="d">14-15</span></time>
       <div class="text">
         <p class="date">Les 14-15 Novembre 2026</p>
@@ -246,7 +232,6 @@
       </div>
     </li>
     <li class="event" data-end="2026-11-20T22:30:00+01:00">
-      <div class="thumb"></div>
       <time class="cal" datetime="2026-11-20" aria-hidden="true"><span class="m">NOV</span><span class="d">20</span></time>
       <div class="text">
         <p class="date">Vendredi 20 Novembre 2026 - 19h</p>
