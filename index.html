@@ -42,7 +42,7 @@
       url("assets/angers.jpg") center top / cover no-repeat fixed,
       var(--navy);
   }
-  .wrap { max-width: 940px; margin: 0 auto; padding: 18px 16px 20px; }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 18px 16px 20px; }
   h1 {
     margin: 0 0 10px;
     text-align: center;
@@ -54,7 +54,7 @@
   ul.events { list-style: none; margin: 0; padding: 0; border-top: 1px solid rgba(160,163,126,.55); }
   .event {
     display: grid;
-    grid-template-columns: 54px 1fr 130px 68px 168px;
+    grid-template-columns: 54px 50px 1fr 130px 68px 168px;
     align-items: center;
     column-gap: 14px;
     padding: 9px 6px;
@@ -89,17 +89,31 @@
   .thumb img { display: block; width: 100%; height: 100%; object-fit: contain; border-radius: 4px; transition: filter .15s; }
   .thumb a:hover img, .thumb a:focus-visible img { filter: brightness(1.15); }
   .thumb a:focus-visible { outline: 3px solid var(--white); outline-offset: 1px; }
-  .text { grid-column: 2; }
-  .cta { grid-column: 3; }
-  .qr { grid-column: 4; }
-  .links { grid-column: 5; display: flex; flex-direction: column; gap: 6px; align-items: flex-start; text-shadow: 0 2px 6px rgba(0,0,0,.7); }
+  .cal {
+    grid-column: 2;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    width: 50px; height: 46px;
+    background: var(--navy);
+    border: 1px solid rgba(160,163,126,.65);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.45);
+    text-shadow: none;
+    line-height: 1;
+  }
+  .cal .m { color: var(--kaki); font-weight: 800; font-size: .62rem; letter-spacing: .08em; }
+  .cal .d { color: var(--white); font-weight: 800; font-size: 1.3rem; margin-top: 2px; }
+  .cal.range .d { font-size: .98rem; margin-top: 4px; }
+  .text { grid-column: 3; }
+  .cta { grid-column: 4; }
+  .qr { grid-column: 5; }
+  .links { grid-column: 6; display: flex; flex-direction: column; gap: 6px; align-items: flex-start; text-shadow: 0 2px 6px rgba(0,0,0,.7); }
   .links a { display: inline-flex; align-items: center; gap: 6px; color: var(--white); font-weight: 700; font-size: .78rem; line-height: 1.2; text-decoration: none; white-space: nowrap; }
   .links a:hover, .links a:focus-visible { text-decoration: underline; }
   .links .tbd { display: inline-flex; align-items: center; gap: 6px; color: rgba(255,255,255,.4); font-weight: 700; font-size: .78rem; line-height: 1.2; white-space: nowrap; }
   .links .tbd .ic { color: rgba(255,255,255,.35); }
   .links .ic { width: 18px; height: 18px; flex: none; color: var(--kaki); }
   .notify {
-    grid-column: 3 / 5;
+    grid-column: 4 / 6;
     padding: 7px 12px;
     border: 1px solid var(--kaki);
     border-radius: 999px;
@@ -141,18 +155,21 @@
   footer a:hover { text-decoration: underline; }
   @media (max-width: 560px) {
     .thumb:empty { display: none; }
-    .event.has-thumb { grid-template-columns: 56px 1fr 68px; }
+    .event { grid-template-columns: 50px 1fr 68px; row-gap: 8px; }
+    .event .cal { grid-column: 1; grid-row: 1; align-self: start; }
+    .event .text { grid-column: 2 / 4; grid-row: 1; }
+    .event .cta { grid-column: 1 / 3; align-self: center; }
+    .event .qr { grid-column: 3; }
+    .event .notify { grid-column: 1 / 4; }
+    .event .links { grid-column: 1 / 4; flex-direction: row; flex-wrap: wrap; gap: 6px 18px; }
+    .event.has-thumb { grid-template-columns: 56px 50px 1fr 68px; }
     .event.has-thumb .thumb { grid-column: 1; grid-row: 1 / span 3; }
-    .event.has-thumb .text { grid-column: 2 / 4; }
-    .event.has-thumb .cta { grid-column: 2; }
-    .event.has-thumb .qr { grid-column: 3; }
-    .event.has-thumb .links { grid-column: 2 / 4; }
-    .event { grid-template-columns: 1fr 68px; row-gap: 8px; }
-    .event .text { grid-column: 1 / 3; }
-    .event .cta { grid-column: 1; align-self: center; }
-    .event .qr { grid-column: 2; }
-    .notify { grid-column: 1 / 3; }
-    .links { grid-column: 1 / 3; flex-direction: row; flex-wrap: wrap; gap: 6px 18px; }
+    .event.has-thumb .cal { grid-column: 2; }
+    .event.has-thumb .text { grid-column: 3 / 5; }
+    .event.has-thumb .cta { grid-column: 2 / 4; }
+    .event.has-thumb .qr { grid-column: 4; }
+    .event.has-thumb .notify { grid-column: 2 / 5; }
+    .event.has-thumb .links { grid-column: 2 / 5; }
     .social { border-radius: 24px; }
   }
 </style>
@@ -165,6 +182,7 @@
   <ul class="events">
     <li class="event has-thumb" data-end="2026-10-07T22:00:00+02:00">
       <div class="thumb"><a href="assets/posters/afterwork-2026-10-07.jpg" target="_blank" rel="noopener" title="Voir l'affiche en grand"><img src="assets/posters/afterwork-2026-10-07-thumb.jpg" alt="Affiche - Afterwork Les Jeunes Energies, 7 octobre" width="120" height="150" loading="lazy"></a></div>
+      <time class="cal" datetime="2026-10-07" aria-hidden="true"><span class="m">OCT</span><span class="d">7</span></time>
       <div class="text">
         <p class="date">Le mercredi 7 Octobre 2026 - 18h30</p>
         <p class="lieu">Afterwork Les Jeunes Energies - Les Variétés - Angers</p>
@@ -178,6 +196,7 @@
     </li>
     <li class="event" data-end="2026-10-11T23:59:00+02:00">
       <div class="thumb"></div>
+      <time class="cal range" datetime="2026-10-10" aria-hidden="true"><span class="m">OCT</span><span class="d">10-11</span></time>
       <div class="text">
         <p class="date">Les 10-11 Octobre 2026</p>
         <p class="lieu">Week-end de Mobilisation Nationale</p>
@@ -189,6 +208,7 @@
     </li>
     <li class="event has-thumb" data-end="2026-10-13T22:30:00+02:00">
       <div class="thumb"><a href="assets/posters/reunion-2026-10-13.jpg" target="_blank" rel="noopener" title="Voir l'affiche en grand"><img src="assets/posters/reunion-2026-10-13-thumb.jpg" alt="Affiche - Réunion des adhérents et sympathisants, 13 octobre" width="120" height="150" loading="lazy"></a></div>
+      <time class="cal" datetime="2026-10-13" aria-hidden="true"><span class="m">OCT</span><span class="d">13</span></time>
       <div class="text">
         <p class="date">Le mardi 13 Octobre 2026 - 19h</p>
         <p class="lieu">Réunion des adhérents et sympathisants - Bowling le Fox à Sainte Gemmes-sur-Loire</p>
@@ -202,6 +222,7 @@
     </li>
     <li class="event" data-end="2026-11-05T23:59:00+01:00">
       <div class="thumb"></div>
+      <time class="cal" datetime="2026-11-05" aria-hidden="true"><span class="m">NOV</span><span class="d">5</span></time>
       <div class="text">
         <p class="date">Le jeudi 5 Novembre 2026</p>
         <p class="lieu">Réunion Cholet (Heure et Lieu à définir)</p>
@@ -214,6 +235,7 @@
     </li>
     <li class="event" data-end="2026-11-15T23:59:00+01:00">
       <div class="thumb"></div>
+      <time class="cal range" datetime="2026-11-14" aria-hidden="true"><span class="m">NOV</span><span class="d">14-15</span></time>
       <div class="text">
         <p class="date">Les 14-15 Novembre 2026</p>
         <p class="lieu">Week-end de Mobilisation Nationale</p>
@@ -225,6 +247,7 @@
     </li>
     <li class="event" data-end="2026-11-20T22:30:00+01:00">
       <div class="thumb"></div>
+      <time class="cal" datetime="2026-11-20" aria-hidden="true"><span class="m">NOV</span><span class="d">20</span></time>
       <div class="text">
         <p class="date">Vendredi 20 Novembre 2026 - 19h</p>
         <p class="lieu">Grande Réunion Publique - Angers - Avec Yves d'Amécourt</p>
