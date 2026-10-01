@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Événements Maine-et-Loire - Nouvelle Énergie 49</title>
+<meta name="description" content="Les prochains événements de Nouvelle Énergie en Maine-et-Loire : réunions, afterworks, week-ends de mobilisation.">
+<meta property="og:title" content="Événements Maine-et-Loire - Nouvelle Énergie 49">
+<meta property="og:description" content="Les prochains événements de Nouvelle Énergie en Maine-et-Loire.">
+<meta property="og:image" content="assets/angers.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #002F67;
+    --kaki: #A0A37E;
+    --white: #FFFFFF;
+    --cream: #F4F1EA;
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--navy); }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Montserrat", "Segoe UI", Arial, sans-serif;
+    color: var(--white);
+    background:
+      linear-gradient(to bottom, rgba(0,47,103,.55) 0%, rgba(0,47,103,.62) 40%, rgba(0,47,103,.88) 100%),
+      url("assets/angers.jpg") center top / cover no-repeat fixed,
+      var(--navy);
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 18px 16px 20px; }
+  h1 {
+    margin: 0 0 10px;
+    text-align: center;
+    font-weight: 800;
+    font-size: clamp(2rem, 7vw, 2.8rem);
+    line-height: 1.05;
+    text-shadow: 0 3px 12px rgba(0,0,0,.55);
+  }
+  ul.events { list-style: none; margin: 0; padding: 0; border-top: 1px solid rgba(160,163,126,.55); }
+  .event {
+    display: grid;
+    grid-template-columns: 1fr 138px 68px;
+    align-items: center;
+    column-gap: 14px;
+    padding: 9px 6px;
+    border-bottom: 1px solid rgba(160,163,126,.55);
+    text-shadow: 0 2px 8px rgba(0,0,0,.65), 0 0 2px rgba(0,0,0,.5);
+  }
+  .event:nth-child(odd) .date,
+  .event:nth-child(odd) .lieu { color: var(--kaki); }
+  .date { margin: 0; font-weight: 800; font-size: clamp(1rem, 3.2vw, 1.3rem); line-height: 1.2; }
+  .lieu { margin: 2px 0 0; font-weight: 700; font-size: clamp(.82rem, 2.5vw, .98rem); line-height: 1.25; }
+  .cta {
+    display: block;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: var(--kaki);
+    color: var(--navy);
+    font-weight: 700;
+    font-size: .9rem;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: none;
+    transition: background .15s, transform .15s;
+  }
+  .cta:hover, .cta:focus-visible { background: var(--white); transform: translateY(-1px); }
+  .cta:focus-visible { outline: 3px solid var(--white); outline-offset: 2px; }
+  .qr { display: block; width: 68px; height: 68px; border-radius: 6px; }
+  /* Week-ends : pas de lien, simple notification de la synchro WhatsApp */
+  .notify {
+    grid-column: 2 / 4;
+    padding: 7px 12px;
+    border: 1px solid var(--kaki);
+    border-radius: 999px;
+    color: var(--white);
+    font-weight: 700;
+    font-size: .85rem;
+    text-align: center;
+    text-shadow: none;
+    background: rgba(0,47,103,.45);
+  }
+  .event.past { opacity: .45; }
+  .event.past .cta, .event.past .qr, .event.past .notify { display: none; }
+  .social {
+    margin-top: 14px;
+    padding: 10px 12px;
+    background: var(--cream);
+    border-radius: 999px;
+    text-align: center;
+    line-height: 0;
+  }
+  .social a { display: inline-block; margin: 0 5px; line-height: 0; }
+  .social img { width: 36px; height: 36px; display: block; transition: transform .15s; }
+  .social a:hover img, .social a:focus-visible img { transform: translateY(-2px); }
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 12px;
+  }
+  footer img { width: 84px; height: auto; display: block; }
+  footer a {
+    color: var(--white);
+    font-weight: 700;
+    font-size: clamp(1rem, 3.4vw, 1.3rem);
+    text-decoration: none;
+    text-shadow: 0 2px 8px rgba(0,0,0,.6);
+  }
+  footer a:hover { text-decoration: underline; }
+  @media (max-width: 560px) {
+    .event { grid-template-columns: 1fr 68px; row-gap: 8px; }
+    .event .text { grid-column: 1 / 3; }
+    .event .cta { grid-column: 1; align-self: center; }
+    .event .qr { grid-column: 2; }
+    .notify { grid-column: 1 / 3; }
+    .social { border-radius: 24px; }
+  }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <h1>Maine-et-Loire</h1>
+
+  <!-- data-end = fin de l'événement (heure de Paris) ; passé ce moment la ligne est estompée automatiquement -->
+  <ul class="events">
+    <li class="event" data-end="2026-10-07T22:00:00+02:00">
+      <div class="text">
+        <p class="date">Le mercredi 7 Octobre 2026 - 18h30</p>
+        <p class="lieu">Afterwork Les Jeunes Energies - Les Variétés - Angers</p>
+      </div>
+      <a class="cta" href="https://1ne.fr/49j" target="_blank" rel="noopener">S'inscrire</a>
+      <img class="qr" src="assets/qr-49j.png" alt="QR code d'inscription - Afterwork du 7 octobre" width="68" height="68">
+    </li>
+    <li class="event" data-end="2026-10-11T23:59:00+02:00">
+      <div class="text">
+        <p class="date">Les 10-11 Octobre 2026</p>
+        <p class="lieu">Week-end de Mobilisation Nationale</p>
+      </div>
+      <span class="notify">Synchro WhatsApp</span>
+    </li>
+    <li class="event" data-end="2026-10-13T22:30:00+02:00">
+      <div class="text">
+        <p class="date">Le mardi 13 Octobre 2026 - 19h</p>
+        <p class="lieu">Réunion des adhérents et sympathisants - Bowling le Fox à Sainte Gemmes-sur-Loire</p>
+      </div>
+      <a class="cta" href="https://1ne.fr/49a2610" target="_blank" rel="noopener">S'inscrire</a>
+      <img class="qr" src="assets/qr-49a2610.png" alt="QR code d'inscription - Réunion du 13 octobre" width="68" height="68">
+    </li>
+    <li class="event" data-end="2026-11-05T23:59:00+01:00">
+      <div class="text">
+        <p class="date">Le jeudi 5 Novembre 2026</p>
+        <p class="lieu">Réunion Cholet</p>
+      </div>
+      <a class="cta" href="https://1ne.fr/49c2611" target="_blank" rel="noopener">S'inscrire</a>
+      <img class="qr" src="assets/qr-49c2611.png" alt="QR code d'inscription - Réunion Cholet du 5 novembre" width="68" height="68">
+    </li>
+    <li class="event" data-end="2026-11-15T23:59:00+01:00">
+      <div class="text">
+        <p class="date">Les 14-15 Novembre 2026</p>
+        <p class="lieu">Week-end de Mobilisation Nationale</p>
+      </div>
+      <span class="notify">Synchro WhatsApp</span>
+    </li>
+    <li class="event" data-end="2026-11-20T22:30:00+01:00">
+      <div class="text">
+        <p class="date">Vendredi 20 Novembre 2026 - 19h</p>
+        <p class="lieu">Grande Réunion Publique - Angers - Avec Yves d'Amécourt</p>
+      </div>
+      <a class="cta" href="https://1ne.fr/49a2611" target="_blank" rel="noopener">S'inscrire</a>
+      <img class="qr" src="assets/qr-49a2611.png" alt="QR code d'inscription - Réunion publique du 20 novembre" width="68" height="68">
+    </li>
+  </ul>
+
+  <!-- Réseaux sociaux : mêmes icônes et liens que l'email d'accueil, sans WhatsApp (adhérents uniquement) -->
+  <nav class="social" aria-label="Réseaux sociaux">
+    <a href="https://1ne.fr/ne49_x" target="_blank" rel="noopener" title="X / Twitter"><img src="assets/ico-x_twitter.png" alt="X / Twitter"></a>
+    <a href="https://1ne.fr/ne49_fb" target="_blank" rel="noopener" title="Facebook"><img src="assets/ico-facebook.png" alt="Facebook"></a>
+    <a href="https://1ne.fr/ne49_insta" target="_blank" rel="noopener" title="Instagram"><img src="assets/ico-instagram.png" alt="Instagram"></a>
+    <a href="https://1ne.fr/ne49_thr" target="_blank" rel="noopener" title="Threads"><img src="assets/ico-threads.png" alt="Threads"></a>
+    <a href="https://1ne.fr/yt_dl" target="_blank" rel="noopener" title="YouTube"><img src="assets/ico-youtube.png" alt="YouTube"></a>
+    <a href="https://1ne.fr/ne49_tt" target="_blank" rel="noopener" title="TikTok"><img src="assets/ico-tiktok.png" alt="TikTok"></a>
+    <a href="https://1ne.fr/ne49_lkdn" target="_blank" rel="noopener" title="LinkedIn"><img src="assets/ico-linkedin.png" alt="LinkedIn"></a>
+  </nav>
+
+  <footer>
+    <img src="assets/logo-ne49.png" alt="Nouvelle Énergie Maine-et-Loire 49" width="84" height="73">
+    <a href="https://www.unenouvelleenergie.fr" target="_blank" rel="noopener">UneNouvelleEnergie.fr</a>
+  </footer>
+</main>
+<script>
+  var now = Date.now();
+  document.querySelectorAll('.event[data-end]').forEach(function (el) {
+    if (Date.parse(el.dataset.end) < now) el.classList.add('past');
+  });
+</script>
+</body>
+</html>
