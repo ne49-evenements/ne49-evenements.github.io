@@ -131,13 +131,15 @@
     text-align: center;
     line-height: 0;
   }
-  .join { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 6px 12px; padding: 4px 0 10px; margin-bottom: 8px; border-bottom: 1px solid rgba(0,47,103,.15); line-height: 1.3; }
+  .social { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px 22px; }
+  .join { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 6px 12px; line-height: 1.3; }
+  .icons { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 6px 0; }
   .join span { color: var(--navy); font-weight: 700; font-size: .95rem; }
   .join a { display: inline-block; margin: 0; line-height: 1.2; padding: 7px 18px; background: var(--navy); color: var(--white); border-radius: 999px; font-weight: 800; font-size: .9rem; text-decoration: none; transition: transform .15s; }
   .join a:hover, .join a:focus-visible { transform: translateY(-1px); text-decoration: underline; }
-  .social > a { display: inline-block; margin: 0 5px; line-height: 0; }
+  .icons > a { display: inline-block; margin: 0 5px; line-height: 0; }
   .social img { width: 36px; height: 36px; display: block; transition: transform .15s; }
-  .social > a:hover img, .social > a:focus-visible img { transform: translateY(-2px); }
+  .icons > a:hover img, .icons > a:focus-visible img { transform: translateY(-2px); }
   footer {
     display: flex;
     align-items: center;
@@ -252,6 +254,7 @@
   <!-- Réseaux sociaux : mêmes icônes et liens que l'email d'accueil, sans WhatsApp (adhérents uniquement) -->
   <nav class="social" aria-label="Réseaux sociaux">
     <div class="join"><span>Vous n'êtes pas adhérent ?</span><a href="https://1ne.fr/49evadh" target="_blank" rel="noopener">Rejoignez-nous</a></div>
+    <div class="icons">
     <a href="https://1ne.fr/ne49_x" target="_blank" rel="noopener" title="X / Twitter"><img src="assets/ico-x_twitter.png" alt="X / Twitter"></a>
     <a href="https://1ne.fr/ne49_fb" target="_blank" rel="noopener" title="Facebook"><img src="assets/ico-facebook.png" alt="Facebook"></a>
     <a href="https://1ne.fr/ne49_insta" target="_blank" rel="noopener" title="Instagram"><img src="assets/ico-instagram.png" alt="Instagram"></a>
@@ -259,6 +262,7 @@
     <a href="https://1ne.fr/yt_dl" target="_blank" rel="noopener" title="YouTube"><img src="assets/ico-youtube.png" alt="YouTube"></a>
     <a href="https://1ne.fr/ne49_tt" target="_blank" rel="noopener" title="TikTok"><img src="assets/ico-tiktok.png" alt="TikTok"></a>
     <a href="https://1ne.fr/ne49_lkdn" target="_blank" rel="noopener" title="LinkedIn"><img src="assets/ico-linkedin.png" alt="LinkedIn"></a>
+    </div>
   </nav>
 
   <footer>
