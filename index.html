@@ -150,7 +150,8 @@
     gap: 16px;
     margin-top: 12px;
   }
-  footer img { width: 84px; height: auto; display: block; }
+  .logos { display: flex; align-items: center; gap: 16px; }
+  footer img { height: 73px; width: auto; display: block; }
   footer a {
     color: var(--white);
     font-weight: 700;
@@ -259,7 +260,10 @@
   </nav>
 
   <footer>
-    <img src="assets/logo-ne49.png" alt="Nouvelle Énergie Maine-et-Loire 49" width="84" height="73">
+    <div class="logos">
+      <img src="assets/logo-ne49.png" alt="Nouvelle Énergie Maine-et-Loire 49" width="84" height="73">
+      <img src="assets/logo-jeunes-energies-49.png" alt="Les Jeunes Énergies 49" width="97" height="73">
+    </div>
     <a href="https://www.unenouvelleenergie.fr" target="_blank" rel="noopener">UneNouvelleEnergie.fr</a>
   </footer>
 </main>
