@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Nouvelle Energie 49//Evenements//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:2026-10-28-afterwork@ne49-evenements.github.io
+DTSTAMP:20261019T214600Z
+DTSTART:20261028T183000Z
+DTEND:20261028T210000Z
+SUMMARY:Afterwork des Jeunes Energies
+LOCATION:Buddy's bar\, Angers
+DESCRIPTION:Inscription : https://nouvelle-energie.qomon.org/action/7a448
+ 507-afterwork-des-jeunes-energies-maine-et-loire\nNouvelle Energie Maine-
+ et-Loire - https://ne49-evenements.github.io/
+END:VEVENT
+END:VCALENDAR
