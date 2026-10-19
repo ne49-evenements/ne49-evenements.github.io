@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Nouvelle Energie 49//Evenements//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:2026-10-31-tractage-marche-lafayette@ne49-evenements.github.io
+DTSTAMP:20261019T120000Z
+DTSTART:20261031T080000Z
+DTEND:20261031T100000Z
+SUMMARY:Café puis tractage Marché Lafayette
+LOCATION:La Cohue\, Angers
+DESCRIPTION:Café à la Cohue puis tractage au Marché Lafayette à Angers.
+
+ Nouvelle Energie Maine-et-Loire - https://ne49-evenements.github.io/
+END:VEVENT
+END:VCALENDAR
