@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Nouvelle Energie 49//Evenements//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:2026-12-13-meeting-lisnard-lyon@ne49-evenements.github.io
+DTSTAMP:20261101T120000Z
+DTSTART:20261213T140000Z
+DTEND:20261213T160000Z
+SUMMARY:Grand Meeting de David Lisnard - Lyon
+LOCATION:Eurexpo (Parc des Expositions)\, Route de Strasbourg\, 69680 Chassieu
+DESCRIPTION:Nouvelle Energie Maine-et-Loire - https://ne49-evenements.git
+ hub.io/
+END:VEVENT
+END:VCALENDAR
