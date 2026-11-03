@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Nouvelle Energie 49//Evenements//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:2026-11-10-afterwork@ne49-evenements.github.io
+DTSTAMP:20261103T120000Z
+DTSTART:20261110T173000Z
+DTEND:20261110T210000Z
+SUMMARY:Afterwork des Jeunes Energies
+LOCATION:Bar "Au Fût et à Mesure"\, 12 rue Botanique\, Angers
+DESCRIPTION:Inscription : https://nouvelle-energie.qomon.org/action/070a5
+ 7de-afterwork-jeunes-energies\nNouvelle Energie Maine-et-Loire - https:/
+ /ne49-evenements.github.io/
+END:VEVENT
+END:VCALENDAR
