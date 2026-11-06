@@ -93,7 +93,7 @@
   .cal {
     grid-column: 1;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    width: 50px; height: 46px;
+    width: 50px; min-height: 46px;
     background: var(--navy);
     border: 1px solid rgba(160,163,126,.65);
     border-radius: 10px;
@@ -103,6 +103,8 @@
   }
   .cal .m { color: var(--kaki); font-weight: 800; font-size: .62rem; letter-spacing: .08em; }
   .cal .d { color: var(--white); font-weight: 800; font-size: 1.3rem; margin-top: 2px; }
+  .cal .y { color: var(--kaki); font-weight: 700; font-size: .6rem; letter-spacing: .04em; margin-top: 2px; }
+  .cal.has-year { padding: 3px 0; }
   .cal.range .d { font-size: .98rem; margin-top: 4px; }
   .text { grid-column: 2; }
   .cta { grid-column: 3; }
@@ -126,7 +128,9 @@
   }
   .event .cta, .event .links, .event .notify { display: none; }
   .event.past { opacity: .45; }
-  .event.past .cta, .event.past .poster, .event.past .notify, .event.past .links { display: none; }
+  .event.past .cta, .event.past .notify, .event.past .links { display: none; }
+  .posters { grid-column: 3 / 5; justify-self: end; display: flex; gap: 6px; }
+  .posters .poster { grid-column: auto; }
   .social {
     margin-top: 14px;
     padding: 10px 12px;
@@ -172,6 +176,8 @@
     .event.has-poster .links { grid-column: 3; }
     .links a, .links .tbd { white-space: normal; }
     .event .poster { grid-column: 4; grid-row: 1 / span 2; align-self: start; justify-self: end; }
+    .event .posters { grid-column: 4; grid-row: 1 / span 2; align-self: start; flex-direction: column; }
+    .event.has-poster .posters ~ .links { grid-column: 3; }
     .social { border-radius: 24px; }
   }
 </style>
@@ -183,28 +189,17 @@
 
   <!-- data-end = fin de l'événement (heure de Paris) ; passé ce moment la ligne est estompée automatiquement -->
   <ul class="events">
-    <li class="event has-poster" data-end="2026-10-07T22:00:00+02:00">
-      <time class="cal" datetime="2026-10-07" aria-hidden="true"><span class="m">OCT</span><span class="d">7</span></time>
+    <li class="event has-poster" data-end="2026-10-28T22:00:00+01:00">
+      <time class="cal" datetime="2026-10-28" aria-hidden="true"><span class="m">OCT</span><span class="d">28</span></time>
       <div class="text">
-        <p class="date">Le mercredi 7 Octobre 2026 - 18h30</p>
-        <p class="lieu">Afterwork Les Jeunes Energies - Les Variétés - Angers</p>
+        <p class="date">Le mercredi 28 Octobre 2026 - 19h30</p>
+        <p class="lieu">Afterwork des Jeunes Énergies - Buddy's bar - Angers</p>
       </div>
-      <a class="cta" href="https://1ne.fr/49j" target="_blank" rel="noopener">S'inscrire</a>
-      <a class="poster" href="assets/posters/afterwork-2026-10-07.jpg" target="_blank" rel="noopener" title="Voir l'affiche en grand"><img src="assets/posters/afterwork-2026-10-07-thumb.jpg" alt="Affiche - Afterwork Les Jeunes Energies, 7 octobre" width="120" height="150" loading="lazy"></a>
+      <a class="cta" href="https://nouvelle-energie.qomon.org/action/7a448507-afterwork-des-jeunes-energies-maine-et-loire" target="_blank" rel="noopener">S'inscrire</a>
+      <a class="poster" href="assets/posters/afterwork-2026-10-28.jpg?v=1" target="_blank" rel="noopener" title="Voir l'affiche en grand"><img src="assets/posters/afterwork-2026-10-28-thumb.jpg?v=1" alt="Affiche - Afterwork des Jeunes Énergies, Angers, 28 octobre" width="120" height="150" loading="lazy"></a>
       <div class="links">
-        <a href="https://www.google.com/maps/search/?api=1&amp;query=Les+Vari%C3%A9t%C3%A9s+Angers" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>Google Maps</a>
-        <a href="assets/ics/2026-10-07-afterwork.ics" download><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>Ajouter au calendrier</a>
-      </div>
-    </li>
-    <li class="event" data-end="2026-10-11T23:59:00+02:00">
-      <time class="cal range" datetime="2026-10-10" aria-hidden="true"><span class="m">OCT</span><span class="d">10-11</span></time>
-      <div class="text">
-        <p class="date">Les 10-11 Octobre 2026</p>
-        <p class="lieu">Week-end de Mobilisation Nationale</p>
-      </div>
-      <span class="notify">Synchro WhatsApp</span>
-      <div class="links">
-        <a href="assets/ics/2026-10-10-weekend-mobilisation.ics" download><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>Ajouter au calendrier</a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Buddy%27s+bar+Angers" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>Google Maps</a>
+        <a href="assets/ics/2026-10-28-afterwork.ics" download><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>Ajouter au calendrier</a>
       </div>
     </li>
     <li class="event has-poster" data-end="2026-10-13T22:30:00+02:00">
@@ -220,18 +215,68 @@
         <a href="assets/ics/2026-10-13-reunion-adherents.ics" download><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>Ajouter au calendrier</a>
       </div>
     </li>
-    <li class="event has-poster" data-end="2026-10-28T22:00:00+01:00">
-      <time class="cal" datetime="2026-10-28" aria-hidden="true"><span class="m">OCT</span><span class="d">28</span></time>
+    <li class="event" data-end="2026-10-11T23:59:00+02:00">
+      <time class="cal range" datetime="2026-10-10" aria-hidden="true"><span class="m">OCT</span><span class="d">10-11</span></time>
       <div class="text">
-        <p class="date">Le mercredi 28 Octobre 2026 - 19h30</p>
-        <p class="lieu">Afterwork des Jeunes Énergies - Buddy's bar - Angers</p>
+        <p class="date">Les 10-11 Octobre 2026</p>
+        <p class="lieu">Week-end de Mobilisation Nationale</p>
       </div>
-      <a class="cta" href="https://nouvelle-energie.qomon.org/action/7a448507-afterwork-des-jeunes-energies-maine-et-loire" target="_blank" rel="noopener">S'inscrire</a>
-      <a class="poster" href="assets/posters/afterwork-2026-10-28.jpg?v=1" target="_blank" rel="noopener" title="Voir l'affiche en grand"><img src="assets/posters/afterwork-2026-10-28-thumb.jpg?v=1" alt="Affiche - Afterwork des Jeunes Énergies, Angers, 28 octobre" width="120" height="150" loading="lazy"></a>
+      <span class="notify">Synchro WhatsApp</span>
       <div class="links">
-        <a href="https://www.google.com/maps/search/?api=1&amp;query=Buddy%27s+bar+Angers" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>Google Maps</a>
-        <a href="assets/ics/2026-10-28-afterwork.ics" download><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>Ajouter au calendrier</a>
+        <a href="assets/ics/2026-10-10-weekend-mobilisation.ics" download><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>Ajouter au calendrier</a>
       </div>
+    </li>
+    <li class="event has-poster" data-end="2026-10-07T22:00:00+02:00">
+      <time class="cal" datetime="2026-10-07" aria-hidden="true"><span class="m">OCT</span><span class="d">7</span></time>
+      <div class="text">
+        <p class="date">Le mercredi 7 Octobre 2026 - 18h30</p>
+        <p class="lieu">Afterwork Les Jeunes Energies - Les Variétés - Angers</p>
+      </div>
+      <a class="cta" href="https://1ne.fr/49j" target="_blank" rel="noopener">S'inscrire</a>
+      <a class="poster" href="assets/posters/afterwork-2026-10-07.jpg" target="_blank" rel="noopener" title="Voir l'affiche en grand"><img src="assets/posters/afterwork-2026-10-07-thumb.jpg" alt="Affiche - Afterwork Les Jeunes Energies, 7 octobre" width="120" height="150" loading="lazy"></a>
+      <div class="links">
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Les+Vari%C3%A9t%C3%A9s+Angers" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>Google Maps</a>
+        <a href="assets/ics/2026-10-07-afterwork.ics" download><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>Ajouter au calendrier</a>
+      </div>
+    </li>
+    <li class="event has-poster" data-end="2026-06-23T22:30:00+02:00">
+      <time class="cal" datetime="2026-06-23" aria-hidden="true"><span class="m">JUIN</span><span class="d">23</span></time>
+      <div class="text">
+        <p class="date">Le mardi 23 Juin 2026 - 19h30</p>
+        <p class="lieu">Réunion publique Ainsi va la France - Salle polyvalente de Noyen-sur-Sarthe</p>
+      </div>
+      <a class="poster" href="assets/posters/reunion-2026-06-23.jpg" target="_blank" rel="noopener" title="Voir en grand"><img src="assets/posters/reunion-2026-06-23-thumb.jpg" alt="Affiche - Réunion publique Ainsi va la France, Noyen-sur-Sarthe, 23 juin 2026" width="120" height="150" loading="lazy"></a>
+    </li>
+    <li class="event has-poster" data-end="2026-06-09T22:00:00+02:00">
+      <time class="cal" datetime="2026-06-09" aria-hidden="true"><span class="m">JUIN</span><span class="d">9</span></time>
+      <div class="text">
+        <p class="date">Le mardi 9 Juin 2026 - 19h30</p>
+        <p class="lieu">Le Tour de France Nouvelle Énergie - Maine-et-Loire - Salle du Hutreau - Sainte-Gemmes-sur-Loire</p>
+      </div>
+      <a class="poster" href="assets/posters/tour-de-france-2026-06-09.jpg?v=2" target="_blank" rel="noopener" title="Voir en grand"><img src="assets/posters/tour-de-france-2026-06-09-thumb.jpg?v=2" alt="Affiche - Le Tour de France Nouvelle Énergie, Sainte-Gemmes-sur-Loire, 9 juin 2026" width="120" height="150" loading="lazy"></a>
+    </li>
+    <li class="event" data-end="2026-04-30T22:00:00+02:00">
+      <time class="cal" datetime="2026-04-30" aria-hidden="true"><span class="m">AVR</span><span class="d">30</span></time>
+      <div class="text">
+        <p class="date">Le jeudi 30 Avril 2026 - 19h</p>
+        <p class="lieu">Chez Pont-Pont - 13 Promenade du Bout du Monde - Angers</p>
+      </div>
+    </li>
+    <li class="event has-poster" data-end="2025-06-24T22:00:00+02:00">
+      <time class="cal has-year" datetime="2025-06-24" aria-hidden="true"><span class="m">JUIN</span><span class="d">24</span><span class="y">2025</span></time>
+      <div class="text">
+        <p class="date">Le mardi 24 Juin 2025 - 19h</p>
+        <p class="lieu">Réunion publique de David Lisnard - Hostellerie du Bon Pasteur - 18 rue Marie-Euphrasie Pelletier - Angers</p>
+      </div>
+      <div class="posters"><a class="poster" href="assets/posters/lisnard-angers-2025-06-24-salle.jpg" target="_blank" rel="noopener" title="Voir en grand"><img src="assets/posters/lisnard-angers-2025-06-24-salle-thumb.jpg" alt="Photo - Réunion publique de David Lisnard, Angers, 24 juin 2025" width="120" height="150" loading="lazy"></a><a class="poster" href="assets/posters/lisnard-angers-2025-06-24-2.jpg" target="_blank" rel="noopener" title="Voir en grand"><img src="assets/posters/lisnard-angers-2025-06-24-2-thumb.jpg" alt="Photo - David Lisnard avec les adhérents, Angers, 24 juin 2025" width="120" height="150" loading="lazy"></a><a class="poster" href="assets/posters/lisnard-angers-2025-06-24-3.jpg" target="_blank" rel="noopener" title="Voir en grand"><img src="assets/posters/lisnard-angers-2025-06-24-3-thumb.jpg" alt="Photo - David Lisnard avec les adhérents, Angers, 24 juin 2025" width="120" height="150" loading="lazy"></a></div>
+    </li>
+    <li class="event has-poster" data-end="2024-09-21T21:00:00+02:00">
+      <time class="cal has-year" datetime="2024-09-21" aria-hidden="true"><span class="m">SEPT</span><span class="d">21</span><span class="y">2024</span></time>
+      <div class="text">
+        <p class="date">Le samedi 21 Septembre 2024 - 18h</p>
+        <p class="lieu">Réunion Nouvelle Énergie Maine-et-Loire - Vagabond Healthy Center - Angers</p>
+      </div>
+      <a class="poster" href="assets/posters/reunion-2024-09-21.jpg" target="_blank" rel="noopener" title="Voir en grand"><img src="assets/posters/reunion-2024-09-21-thumb.jpg" alt="Affiche - Réunion Nouvelle Énergie Maine-et-Loire, 21 septembre 2024" width="120" height="150" loading="lazy"></a>
     </li>
   </ul>
 
@@ -270,7 +315,7 @@
         if (Date.parse(el.dataset.end) < now && !have[el.dataset.end]) list.appendChild(document.importNode(el, true));
       });
       var items = Array.prototype.slice.call(list.children);
-      items.sort(function (a, b) { return Date.parse(a.dataset.end) - Date.parse(b.dataset.end); });
+      items.sort(function (a, b) { return Date.parse(b.dataset.end) - Date.parse(a.dataset.end); });
       items.forEach(function (el) { list.appendChild(el); });
     }).catch(function () {});
   })();
