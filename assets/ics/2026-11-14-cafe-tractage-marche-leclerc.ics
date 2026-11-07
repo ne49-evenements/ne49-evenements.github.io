@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Nouvelle Energie 49//Evenements//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:2026-11-14-cafe-tractage-marche-leclerc@ne49-evenements.github.io
+DTSTAMP:20261107T120000Z
+DTSTART:20261114T083000Z
+DTEND:20261114T103000Z
+SUMMARY:Café/Croissant puis tractage Marché Leclerc
+LOCATION:Chez Lux Mendes France\, 1 Rue Joubert\, 49100 Angers
+DESCRIPTION:Café/Croissant à la boulangerie Chez Lux Mendes France puis tractage au
+  Marché Leclerc à Angers. Coordination sur WhatsApp.
+
+Nouvelle Energie Maine-et-Loire - https://ne49-evenements.github.io/
+END:VEVENT
+END:VCALENDAR
